@@ -67,6 +67,8 @@ html {
 body {
     font-family: var(--fontFamilyDefault);
     font-size: var(--fsDesktopDefault);
+    background-color: var(--clrBGDefaultInLightMode);
+    color: var(--clrTextDefaultInLightMode);
 }
 
 h1,

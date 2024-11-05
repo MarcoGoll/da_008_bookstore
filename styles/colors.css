@@ -6,8 +6,8 @@
 
     /*LightMode (Default)*/
     /*Default Text and Background InLightMode*/
-    --clrTextDefaultInLightMode: black;
-    --clrBGDefaultInLightMode: white;
+    --clrTextDefaultInLightMode: var(--clrPrim5);
+    --clrBGDefaultInLightMode: var(--clrPrim95);
     /*Text interactive Elements in LightMode*/
     --clrTextLinkInLightMode: black;
     --clrTextBtnInLightMode: black;
@@ -23,8 +23,8 @@
 
     /*DarkMode*/
     /*Default Text and Background InDarkMode*/
-    --clrTextDefaultInDarkMode: white;
-    --clrBGDefaultInDarkMode: black;
+    --clrTextDefaultInDarkMode: var(--clrPrim95);
+    --clrBGDefaultInDarkMode: var(--clrPrim5);
     /*Text interactive Elements in LightMode*/
     --clrTextLinkInDarkMode: white;
     --clrTextBtnInDarkMode: white;
@@ -39,65 +39,67 @@
     /*TODO:--clrContainerBackgroundInLightMode: <transparen>;*/
 
     /*Primary Color*/
-    --clrPrim95: #eff0f5;
-    --clrPrim90: #e0e1eb;
-    --clrPrim85: #d0d1e1;
-    --clrPrim80: #c1c2d7;
-    --clrPrim75: #b1b3cd;
-    --clrPrim70: #a2a4c3;
-    --clrPrim65: #9295b9;
-    --clrPrim60: #8386af;
-    --clrPrim55: #7376a5;
-    --clrPrim50: #63679c;
-    --clrPrim45: #5a5d8c;
-    --clrPrim40: #50537c;
-    --clrPrim35: #46486d;
-    --clrPrim30: #3c3e5d;
-    --clrPrim25: #32344e;
-    --clrPrim20: #28293e;
-    --clrPrim15: #1e1f2f;
-    --clrPrim10: #14151f;
-    --clrPrim5: #0a0a10;
+    --clrPrim95: #e6f7fe;
+    --clrPrim90: #cdeefe;
+    --clrPrim85: #b4e6fd;
+    --clrPrim80: #9cdefc;
+    --clrPrim75: #83d5fc;
+    --clrPrim70: #6acdfb;
+    --clrPrim65: #51c5fb;
+    --clrPrim60: #38bdfa;
+    --clrPrim55: #1fb4f9;
+    --clrPrim50: #06acf9;
+    --clrPrim45: #069be0;
+    --clrPrim40: #058ac7;
+    --clrPrim35: #0478ae;
+    --clrPrim30: #046795;
+    --clrPrim25: #03567c;
+    --clrPrim20: #034563;
+    --clrPrim15: #02334a;
+    --clrPrim10: #012232;
+    --clrPrim5: #011119;
 
     /*Secondary Color*/
-    --clrSec95: #e6f8ff;
-    --clrSec90: #ccf1ff;
-    --clrSec85: #b3ebff;
-    --clrSec80: #99e4ff;
-    --clrSec75: #80ddff;
-    --clrSec70: #66d6ff;
-    --clrSec65: #4dcfff;
-    --clrSec60: #33c9ff;
-    --clrSec55: #1ac2ff;
-    --clrSec50: #00bbff;
-    --clrSec45: #00a8e6;
-    --clrSec40: #0096cc;
-    --clrSec35: #0083b3;
-    --clrSec30: #007099;
-    --clrSec25: #005e80;
-    --clrSec20: #004b66;
-    --clrSec15: #00384d;
-    --clrSec10: #002533;
-    --clrSec5: #00131a;
+    --clrSec95: #e9f8fb;
+    --clrSec90: #d4f0f7;
+    --clrSec85: #bee9f4;
+    --clrSec80: #a8e1f0;
+    --clrSec75: #93daec;
+    --clrSec70: #7dd3e8;
+    --clrSec65: #67cbe4;
+    --clrSec60: #52c4e0;
+    --clrSec55: #3cbcdd;
+    --clrSec50: #26b5d9;
+    --clrSec45: #22a3c3;
+    --clrSec40: #1f91ad;
+    --clrSec35: #1b7f98;
+    --clrSec30: #176d82;
+    --clrSec25: #135b6c;
+    --clrSec20: #0f4857;
+    --clrSec15: #0b3641;
+    --clrSec10: #08242b;
+    --clrSec5: #041216;
+
 
     /*Accent Color*/
-    --clrAcc95: #e6fff6;
-    --clrAcc90: #ccffec;
-    --clrAcc85: #b3ffe3;
-    --clrAcc80: #99ffda;
-    --clrAcc75: #80ffd0;
-    --clrAcc70: #66ffc7;
-    --clrAcc65: #4dffbe;
-    --clrAcc60: #33ffb4;
-    --clrAcc55: #1affab;
-    --clrAcc50: #00ffa2;
-    --clrAcc45: #00e691;
-    --clrAcc40: #00cc81;
-    --clrAcc35: #00b371;
-    --clrAcc30: #009961;
-    --clrAcc25: #008051;
-    --clrAcc20: #006641;
-    --clrAcc15: #004d30;
-    --clrAcc10: #003320;
-    --clrAcc5: #001a10;
+    --clrAcc95: #fff8e6;
+    --clrAcc90: #fff1cc;
+    --clrAcc85: #ffe9b3;
+    --clrAcc80: #ffe299;
+    --clrAcc75: #ffdb80;
+    --clrAcc70: #ffd466;
+    --clrAcc65: #ffcc4d;
+    --clrAcc60: #ffc533;
+    --clrAcc55: #ffbe1a;
+    --clrAcc50: #ffb700;
+    --clrAcc45: #e6a400;
+    --clrAcc40: #cc9200;
+    --clrAcc35: #b38000;
+    --clrAcc30: #996e00;
+    --clrAcc25: #805b00;
+    --clrAcc20: #664900;
+    --clrAcc15: #4d3700;
+    --clrAcc10: #332500;
+    --clrAcc5: #1a1200;
+
 }

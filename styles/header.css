@@ -8,7 +8,8 @@ header {
     left: 0;
     right: 0;
     height: 10vh;
-    background-color: var(--clrPrim50);
+    background-color: var(--clrPrim10);
+    color: var(--clrPrim95);
 }
 
 .content__Header {
@@ -17,7 +18,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: var(--stdGap);
+
 }
 
 #logoHeader {
@@ -25,12 +26,8 @@ header {
     padding: var(--stdPadding);
 }
 
-nav {
+#logoText {
     flex: 1;
-
-    display: flex;
-    justify-content: end;
-    gap: var(--stdGap);
 }
 
 /*==================================================================================================== 
