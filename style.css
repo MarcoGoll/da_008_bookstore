@@ -13,7 +13,7 @@
     --stdGap: 1.5rem;
 
     /*Basics for InteractiveElements (Link / Button / Input) */
-    --stdPaddingInteractiveElements: 0.5rem 2rem;
+    --stdPaddingInteractiveElements: 0.5rem 0.5rem;
     --stdRadiusInteractiveElements: 0.5rem;
 }
 

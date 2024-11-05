@@ -7,12 +7,16 @@
     justify-content: center;
     background-color: var(--clrPrim15);
     color: var(--clrPrim95);
-    padding: 10px;
+    padding: 24px;
     border-radius: var(--stdRadius);
     gap: 8px;
     min-width: 360px;
     max-width: 25%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.book h2 {
+    text-align: center;
 }
 
 .book__dividingLine {
@@ -55,7 +59,8 @@
 
 .infoArea__price {
     color: tomato;
-    font-size: 32px;
+    font-size: 26px;
+    font-weight: bold;
 }
 
 .heart {
@@ -82,7 +87,9 @@
 
 .book-commentArea {
     font-size: var(--fsDesktopSec);
-
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .displayComments {
@@ -91,10 +98,15 @@
     gap: 24px;
     max-height: 100px;
     overflow-y: scroll;
+    scrollbar-color: var(--clrPrim75)var(--clrPrim20);
+    scrollbar-width: thin;
+
+
 }
 
 .displayComment {
     display: flex;
+    gap: 8px;
 }
 
 .comment {
@@ -107,5 +119,39 @@
 
 .sendComment {
     display: flex;
-    justify-items: center;
+    justify-content: center;
+}
+
+.sendComment input {
+    flex: 1;
+    background-color: var(--clrPrim20);
+    color: var(--clrPrim75);
+    border: none;
+    cursor: pointer;
+    border: 1px solid var(--clrPrim20);
+}
+
+.sendComment input::placeholder {
+    color: var(--clrPrim85);
+}
+
+.sendComment input:focus {
+    outline: none;
+    border: 1px solid white;
+}
+
+.sendComment button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.sendComment button:hover {
+    background-color: var(--clrAcc45);
+    border: 1px solid white;
 }

@@ -144,6 +144,6 @@ button:hover {
 
 input,
 textarea {
-    font-size: var(--fsDesktopDefault);
+    font-size: var(--fsDesktopSec);
     padding: var(--stdPaddingInteractiveElements);
 }
