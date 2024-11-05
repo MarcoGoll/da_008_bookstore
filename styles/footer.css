@@ -9,11 +9,19 @@ footer {
     height: 10vh;
     /*1:1 header height*/
     background-color: var(--clrPrim10);
+    color: var(--clrPrim95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fsDesktopTertiary);
 }
 
 
 .content__Footer {
     /* add specific design for header content here */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /*==================================================================================================== 
