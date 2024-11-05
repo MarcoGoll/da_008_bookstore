@@ -12,6 +12,7 @@ main {
 ============================================================ */
 .section__Books {
     /* add specific design for section background here */
+    padding: 100px 0px calc(100px + 10vh) 0px;
 }
 
 .content__section__Books {
@@ -19,6 +20,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 32px;
 }
 
 /*==================================================================================================== 

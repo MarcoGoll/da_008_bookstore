@@ -10,6 +10,9 @@
     padding: 10px;
     border-radius: var(--stdRadius);
     gap: 8px;
+    min-width: 360px;
+    max-width: 25%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .book__dividingLine {
@@ -75,4 +78,34 @@
 
 .value {
     flex: 2;
+}
+
+.book-commentArea {
+    font-size: var(--fsDesktopSec);
+
+}
+
+.displayComments {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.displayComment {
+    display: flex;
+}
+
+.comment {
+    flex: 2;
+}
+
+.submitter {
+    flex: 1;
+}
+
+.sendComment {
+    display: flex;
+    justify-items: center;
 }
