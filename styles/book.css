@@ -1,0 +1,78 @@
+/*==================================================================================================== 
+    CSS for book's
+==================================================================================================== */
+.book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--clrPrim15);
+    color: var(--clrPrim95);
+    padding: 10px;
+    border-radius: var(--stdRadius);
+    gap: 8px;
+}
+
+.book__dividingLine {
+    max-height: 2px;
+    min-height: 2px;
+    background-color: var(--clrAcc50);
+}
+
+
+.book__img {
+    background-color: var(--clrPrim20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book__img>img {
+    width: 200px;
+    height: 200px;
+}
+
+.book__infoArea {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.infoArea__highlights {
+    display: flex;
+    justify-content: space-between;
+}
+
+.infoArea__likeOrNot {
+    display: flex;
+    align-items: center;
+    font-size: var(--fsDesktopSec);
+    gap: 8px;
+
+}
+
+.infoArea__price {
+    color: tomato;
+    font-size: 32px;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+}
+
+.heart:hover {
+    fill: var(--clrAcc50);
+}
+
+.infoArea__line {
+    display: flex;
+    justify-content: center;
+}
+
+.label {
+    flex: 1;
+}
+
+.value {
+    flex: 2;
+}

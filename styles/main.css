@@ -10,23 +10,15 @@ main {
 /*============================================================ 
     SECTION A
 ============================================================ */
-.section__A {
+.section__Books {
     /* add specific design for section background here */
 }
 
-.content__section__A {
+.content__section__Books {
     /* add specific design for section content here */
-}
-
-/*============================================================ 
-    SECTION X
-============================================================ */
-.section__X {
-    /* add specific design for section background here */
-}
-
-.content__section__X {
-    /* add specific design for section content here */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /*==================================================================================================== 
