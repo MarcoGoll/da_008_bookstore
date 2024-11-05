@@ -1,0 +1,51 @@
+:root {
+    /*============================================================ 
+        :ROOT - FONTS
+    ============================================================ */
+    --fontFamilyHeadlines: Arial, Helvetica, sans-serif;
+    --fontFamilyDefault: Verdana, Geneva, Tahoma, sans-serif;
+
+    /*========================================
+    FONT SIZES - AS A TYPICAL STRUCTURE FOR WEBPAGES
+    USAGE:
+     ==> "...Default..." for Text and Inputs
+     ==> "...Sec..." e.g. Imagedescription (add italic and a lighter color) 
+     ==> "...Tertiary..." e.g. Tables
+     ========================================*/
+
+    /*====================
+    FONT SIZES - INTERACTION HEAVY
+    ====================*/
+    /*Mobile*/
+    /*40px*/
+    /*Use between 28px-40px*/
+    --fsMobileH1: 2.5rem;
+    /*32px*/
+    --fsMobileH2: 2rem;
+    /*28px*/
+    --fsMobileH3: 1.75rem;
+    /*24px*/
+    --fsMobileH4: 1.5rem;
+    /*18px* - Use between 16px-18px*/
+    --fsMobileDefault: 1.125rem;
+    /*16px - Use 2px smaller than default*/
+    --fsMobileSec: 1rem;
+    /*14px*/
+    --fsMobileTertiary: 0.875rem;
+
+    /*Desktop*/
+    /*48px* - Use between 35px-50px*/
+    --fsDesktopH1: 3rem;
+    /*40px*/
+    --fsDesktopH2: 2.5rem;
+    /*36px*/
+    --fsDesktopH3: 2.25rem;
+    /*32px*/
+    --fsDesktopH4: 2rem;
+    /*20px* - Use between 14px-20px*/
+    --fsDesktopDefault: 1.25rem;
+    /*18px* - Use 2px smaller than default*/
+    --fsDesktopSec: 1.125rem;
+    /*16px*/
+    --fsDesktopTertiary: 1rem;
+}
