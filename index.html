@@ -23,11 +23,13 @@
     <link rel="stylesheet" href="./styles/displaySizes/mobileM_375-424.css">
     <link rel="stylesheet" href="./styles/displaySizes/mobileS_374_and_smaller.css">
 
+    <script src="./scripts/books.js" defer></script>
+    <script src="./scripts/templates.js" defer></script>
     <script src="./script.js" defer></script>
     <script src="./scripts/basics.js" defer></script>
 </head>
 
-<body id="body">
+<body id="body" onload="init()">
     <header class="flexROW__xCyC">
         <div class="contentLimit content__Header">
             <!-- Add Contend here -->
@@ -39,7 +41,7 @@
     </header>
     <main>
         <section class="section__Books flexROW__xCyC">
-            <div class="contentLimit content__section__Books">
+            <div id="content__section__Books" class="contentLimit content__section__Books">
                 <!-- Add Contend here -->
                 <div class="book">
                     <h2 class="book__headline">Example Book</h2>
