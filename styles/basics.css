@@ -1,6 +1,6 @@
-/*============================================================ 
-    Styles for Basic Functions
-============================================================ */
+/*================================================
+    for BASIC FEATURE ==> go to top
+/*================================================*/
 #goTopBtn {
     display: none;
     /* Hidden by default */
@@ -34,4 +34,64 @@
 #goTopBtn:hover {
     background-color: tomato;
     /* Add a dark-grey background on hover */
+}
+
+/*================================================
+    for BASIC FEATURE ==> hamburger nav
+/*================================================*/
+.mobileNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 24px 150px 24px;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100vh;
+    transition: all 250ms ease-in-out;
+    z-index: 99;
+}
+
+.closed {
+    transform: translateX(105%);
+}
+
+#closeBtn {
+    align-self: flex-end;
+    padding: 0px 15px;
+    background-color: red;
+    color: white;
+    border: 1px solid transparent;
+    transition: all 100ms ease-in-out;
+}
+
+#btnDarkmodeMobile {
+    display: flex;
+    justify-content: center;
+}
+
+#closeBtn:hover {
+    background-color: tomato;
+    color: white;
+    border: 1px solid white;
+}
+
+@media (max-width: 970px) {
+    nav {
+        display: none;
+    }
+}
+
+@media (min-width: 970px) {
+    .mobileNav {
+        display: none;
+    }
+
+    #buttonHamburger {
+        display: none;
+    }
 }

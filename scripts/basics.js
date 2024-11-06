@@ -12,6 +12,7 @@ const refGoTopBtn = document.getElementById("goTopBtn");
 /*================================================*/
 const refBody = document.getElementById('body');
 const refbtnDarkmode = document.getElementById('btnDarkmode');
+const refbtnDarkmodeMobile = document.getElementById('btnDarkmodeMobile');
 
 
 /*====================================================================================================
@@ -56,14 +57,25 @@ function switchDarkmode() {
         //add here properties for lightmode
         refBody.classList.remove("darkmode");
         refbtnDarkmode.innerHTML = "<img src='./assets/icons/googleFontsIcons/moon.svg' alt='Moon'>";
+        refbtnDarkmodeMobile.innerHTML = "<img src='./assets/icons/googleFontsIcons/moon.svg' alt='Moon'>";
 
     } else {
         //add here properties for darkmodemode
         refBody.classList.add("darkmode");
         refbtnDarkmode.innerHTML = "<img src='./assets/icons/googleFontsIcons/sun.svg' alt='Sun'>";
+        refbtnDarkmodeMobile.innerHTML = "<img src='./assets/icons/googleFontsIcons/sun.svg' alt='Sun'>";
     }
 }
 
+/*================================================
+    for BASIC FEATURE ==> hamburger nav
+/*================================================*/
+/*
+* Switch zwischen Darkmode and Lightmode
+*/
+function toggleMobileNav() {
+    document.getElementById("mobileNav").classList.toggle(`closed`);
+}
 
 
 

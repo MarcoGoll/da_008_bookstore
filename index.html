@@ -8,15 +8,15 @@
     <link rel="icon" href="./assets/img/logo.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./styles/basics.css">
+
     <link rel="stylesheet" href="./styles/standards.css">
     <link rel="stylesheet" href="./styles/colors.css">
     <link rel="stylesheet" href="./styles/fonts.css">
     <link rel="stylesheet" href="./styles/book.css">
-
     <link rel="stylesheet" href="./styles/header.css">
     <link rel="stylesheet" href="./styles/main.css">
     <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/basics.css">
 
     <link rel="stylesheet" href="./styles/displaySizes/tablet_768-1023.css">
     <link rel="stylesheet" href="./styles/displaySizes/mobileL_425-767.css">
@@ -35,12 +35,23 @@
             <!-- Add Contend here -->
             <img id="logoHeader" src="./assets/img/logo.png" alt="logo">
             <p id="logoText">DA Bookstore - get your book here</p>
-            <button onclick="renderBookGroup('all')">All Books</button>
-            <button onclick="renderBookGroup('liked')">My Liked</button>
-            <button onclick="renderBookGroup('fav')">My Favourite</button>
-            <button id="btnDarkmode" onclick="switchDarkmode()"><img src="./assets/icons/googleFontsIcons/moon.svg"
-                    alt="Moon"></button>
-            <button><img src="./assets/icons/googleFontsIcons/hamburger.svg" alt="Moon"></button>
+            <nav>
+                <button onclick="renderBookGroup('all')">All Books</button>
+                <button onclick="renderBookGroup('liked')">My Liked</button>
+                <button onclick="renderBookGroup('fav')">My Favourite</button>
+                <button id="btnDarkmode" onclick="switchDarkmode()"><img src="./assets/icons/googleFontsIcons/moon.svg"
+                        alt="Moon"></button>
+            </nav>
+            <button id="buttonHamburger" onclick="toggleMobileNav()" class=""><img
+                    src="./assets/icons/googleFontsIcons/hamburger.svg" alt="HamburgerMenue"></button>
+            <div id="mobileNav" class="mobileNav closed">
+                <button id="closeBtn" onclick="toggleMobileNav()">x</button>
+                <button onclick="renderBookGroup('all')">All Books</button>
+                <button onclick="renderBookGroup('liked')">My Liked</button>
+                <button onclick="renderBookGroup('fav')">My Favourite</button>
+                <button id="btnDarkmodeMobile" onclick="switchDarkmode()"><img
+                        src="./assets/icons/googleFontsIcons/moon.svg" alt="Moon"></button>
+            </div>
         </div>
     </header>
     <main>
