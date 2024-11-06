@@ -16,7 +16,9 @@
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
 function init(){
+    getFromLocalStorage();
     renderAllBooks();
+    
 }
 
 /*
@@ -70,13 +72,38 @@ function createMyComment(i){
     let commentInpRef = document.getElementById(`commentInp${i}`);
     books[i].comments.push({ name: "YOU", comment: commentInpRef.value});
     renderAllBooks();
+    saveToLocalStorage();
+}
+
+
+//saveToLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavoriteBook ()
+/*
+* Create a new comment for the book with the appropriate index
+* @param {string} <variableName> Desription for the usage of a parameter
+* @param {number} <variableName> Desription for the usage of a parameter
+* @param {(string|Array)} <variableName> Desription for the usage of a parameter
+* @param {(number|Array)} <variableName> Desription for the usage of a parameter
+* @returns {(string|Array)} <variableName> Desription for the return variable/value
+*/
+function saveToLocalStorage() {
+    localStorage.setItem("myBooks", JSON.stringify(books)); 
+}
+
+function getFromLocalStorage() {
+    const myLoadedBooks = localStorage.getItem('myBooks'); // wird als String geladen nicht als Array!
+    let myArray = JSON.parse(myLoadedBooks); // Wandelt String in Array (object) um.
+
+    if (myArray != null) { // Darf nur gemacht werden, wenn die Variable im LocalStorage gefunden wird
+        books = myArray;
+    }
 
 }
 
-//markAsLikedBookToggle
-//markAsFavoriteToggle
-//saveToLocalStorage ==> myComments/ boolean liked / boolean favorite
-//loadFromLocalStorage ==> boolean liked / boolean favorite
+
+//loadFromLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavoriteBook ()
+
+//togleIsLikedBook
+//toggleIsFavoriteBook
 
 /*====================================================================================================
     EVENT LISTENERS
