@@ -1,6 +1,5 @@
 /*
-* Description for the function
-* @param {string} <variableName> Desription for the usage of a parameter
+* Provides the intended HTML code for a book and takes over the index for unique designations where necessary
 * @param {number} <variableName> Desription for the usage of a parameter
 * @param {(string|Array)} <variableName> Desription for the usage of a parameter
 * @param {(number|Array)} <variableName> Desription for the usage of a parameter
@@ -46,8 +45,8 @@ function getBookTemplate(book, i) {
                         <h3>Comments:</h3>
                         <div class="displayComments" id="displayComments${i}"></div>
                         <div class="sendComment">
-                            <input type="text" name="comment" id="commentInp" placeholder="Schreibe dein Kommentar ...">
-                            <button id="sendCommentBtn"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
+                            <input type="text" name="comment" id="commentInp${i}" placeholder="Schreibe dein Kommentar ...">
+                            <button onclick="createMyComment(${i})" id="sendCommentBtn"><svg xmlns="http://www.w3.org/2000/svg" height="24px"
                                 viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
                                 <path
                                     d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
@@ -61,7 +60,7 @@ function getBookTemplate(book, i) {
 }
 
 /*
-* Description for the function
+* Provides the intended HTML code for a comment and takes over the index for unique designations where necessary
 * @param {string} <variableName> Desription for the usage of a parameter
 * @param {number} <variableName> Desription for the usage of a parameter
 * @param {(string|Array)} <variableName> Desription for the usage of a parameter

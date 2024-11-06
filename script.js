@@ -8,7 +8,7 @@
     FUNCTIONS
 ====================================================================================================*/ 
 /*
-* Description for the function
+* Is called when the page is opened and initialises the rendering of all books 
 * @param {string} <variableName> Desription for the usage of a parameter
 * @param {number} <variableName> Desription for the usage of a parameter
 * @param {(string|Array)} <variableName> Desription for the usage of a parameter
@@ -20,7 +20,7 @@ function init(){
 }
 
 /*
-* Description for the function
+* Goes through an array of books and renders all contained
 * @param {string} <variableName> Desription for the usage of a parameter
 * @param {number} <variableName> Desription for the usage of a parameter
 * @param {(string|Array)} <variableName> Desription for the usage of a parameter
@@ -38,7 +38,7 @@ function renderAllBooks(){
 }
 
 /*
-* Description for the function
+* Goes through all comments of a book and renders all contained
 * @param {string} <variableName> Desription for the usage of a parameter
 * @param {number} <variableName> Desription for the usage of a parameter
 * @param {(string|Array)} <variableName> Desription for the usage of a parameter
@@ -58,8 +58,25 @@ function renderAllBookComments(book, i){
     }
 }
 
-//createMyComment
-//likeBookToggle
+/*
+* Create a new comment for the book with the appropriate index
+* @param {string} <variableName> Desription for the usage of a parameter
+* @param {number} <variableName> Desription for the usage of a parameter
+* @param {(string|Array)} <variableName> Desription for the usage of a parameter
+* @param {(number|Array)} <variableName> Desription for the usage of a parameter
+* @returns {(string|Array)} <variableName> Desription for the return variable/value
+*/
+function createMyComment(i){
+    let commentInpRef = document.getElementById(`commentInp${i}`);
+    books[i].comments.push({ name: "YOU", comment: commentInpRef.value});
+    renderAllBooks();
+
+}
+
+//markAsLikedBookToggle
+//markAsFavoriteToggle
+//saveToLocalStorage ==> myComments/ boolean liked / boolean favorite
+//loadFromLocalStorage ==> boolean liked / boolean favorite
 
 /*====================================================================================================
     EVENT LISTENERS
