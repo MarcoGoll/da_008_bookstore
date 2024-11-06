@@ -71,6 +71,13 @@
 
 .heart:hover {
     fill: var(--clrAcc50);
+    filter: drop-shadow(0px 0px 5px var(--clrAcc50));
+}
+
+.isLikedBook {
+    fill: hsl(0, 100%, 50%);
+    filter: drop-shadow(0px 0px 5px red);
+
 }
 
 .infoArea__line {

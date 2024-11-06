@@ -3,7 +3,6 @@
 ====================================================================================================*/ 
 // Add global variables here
 
-
 /*====================================================================================================
     FUNCTIONS
 ====================================================================================================*/ 
@@ -78,7 +77,7 @@ function createMyComment(i){
 
 //saveToLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavoriteBook ()
 /*
-* Create a new comment for the book with the appropriate index
+* Saves the array books as a string in LocalStorage
 * @param {string} <variableName> Desription for the usage of a parameter
 * @param {number} <variableName> Desription for the usage of a parameter
 * @param {(string|Array)} <variableName> Desription for the usage of a parameter
@@ -89,6 +88,15 @@ function saveToLocalStorage() {
     localStorage.setItem("myBooks", JSON.stringify(books)); 
 }
 
+//loadFromLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavoriteBook ()
+/*
+* Loads from LocalStorage the string mybooks and if it is not null it is assigned as object to the array books
+* @param {string} <variableName> Desription for the usage of a parameter
+* @param {number} <variableName> Desription for the usage of a parameter
+* @param {(string|Array)} <variableName> Desription for the usage of a parameter
+* @param {(number|Array)} <variableName> Desription for the usage of a parameter
+* @returns {(string|Array)} <variableName> Desription for the return variable/value
+*/
 function getFromLocalStorage() {
     const myLoadedBooks = localStorage.getItem('myBooks'); // wird als String geladen nicht als Array!
     let myArray = JSON.parse(myLoadedBooks); // Wandelt String in Array (object) um.
@@ -99,10 +107,25 @@ function getFromLocalStorage() {
 
 }
 
-
-//loadFromLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavoriteBook ()
-
-//togleIsLikedBook
+/*
+* Loads from LocalStorage the string mybooks and if it is not null it is assigned as object to the array books
+* @param {string} <variableName> Desription for the usage of a parameter
+* @param {number} <variableName> Desription for the usage of a parameter
+* @param {(string|Array)} <variableName> Desription for the usage of a parameter
+* @param {(number|Array)} <variableName> Desription for the usage of a parameter
+* @returns {(string|Array)} <variableName> Desription for the return variable/value
+*/
+function togleIsLikedBook(i){
+ let heartRef = document.getElementById(`heart${i}`);
+ let likesRef = document.getElementById(`likes${i}`);   
+ if(heartRef.classList.contains("isLikedBook")){
+    heartRef.classList.remove("isLikedBook");
+    likesRef.innerHTML -= 1; 
+ }else{
+    heartRef.classList.add("isLikedBook");
+    likesRef.innerHTML = parseInt(likesRef.innerHTML) + 1;
+ }
+}
 //toggleIsFavoriteBook
 
 /*====================================================================================================
