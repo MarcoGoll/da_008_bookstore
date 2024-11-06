@@ -37,15 +37,12 @@ function renderBookGroup(whichOne) {
     for (let i = 0; i < books.length; i++) {
         if (whichOne == "all") {
             renderBook(books[i], i);
-            h1Ref.innerHTML = "All Books";
         }
         if (whichOne == "liked" && books[i].liked) {
             renderBook(books[i], i);
-            h1Ref.innerHTML = "Liked Books";
         }
         if (whichOne == "fav" && books[i].isFavouritBook) {
             renderBook(books[i], i);
-            h1Ref.innerHTML = "Favourite Books";
         }
     }
 }
@@ -70,6 +67,14 @@ function setPageHeadline(whichOne) {
     }
 }
 
+/*
+* Description
+* @param {string} <variableName> Desription for the usage of a parameter
+* @param {number} <variableName> Desription for the usage of a parameter
+* @param {(string|Array)} <variableName> Desription for the usage of a parameter
+* @param {(number|Array)} <variableName> Desription for the usage of a parameter
+* @returns {(string|Array)} <variableName> Desription for the return variable/value
+*/
 function renderBook(currentBook, i) {
     let likedClass = "";
     let favClass = "";
