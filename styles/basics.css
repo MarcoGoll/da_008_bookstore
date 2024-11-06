@@ -28,9 +28,10 @@
     /* Rounded corners */
     font-size: 18px;
     /* Increase font size */
+    transition: all 200ms ease-in-out;
 }
 
 #goTopBtn:hover {
-    background-color: rgb(88, 0, 0);
+    background-color: tomato;
     /* Add a dark-grey background on hover */
 }

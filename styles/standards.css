@@ -125,9 +125,13 @@ button {
     border-radius: var(--stdRadiusInteractiveElements);
     color: var(--clrTextBtnInLightMode);
     background-color: var(--clrBGBtnInLightMode);
+    border: 1px solid var(--clrPrim75);
+
+    transition: all 200ms ease-in-out;
 }
 
 button:hover {
+    cursor: pointer;
     background-color: var(--clrBGBtnHoverInLightMode);
 }
 
