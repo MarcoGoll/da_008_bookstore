@@ -29,11 +29,11 @@ function init(){
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
 function renderAllBooks(){
-    let content__section__BooksRef = document.getElementById('content__section__Books');
-    content__section__BooksRef.innerHTML = "";
+    let booksContainerRef = document.getElementById('booksContainer');
+    booksContainerRef.innerHTML = "";
 
     for (let i = 0; i < books.length; i++) {
-        content__section__BooksRef.innerHTML += getBookTemplate(books[i], i);
+        booksContainerRef.innerHTML += getBookTemplate(books[i], i);
         renderAllBookComments(books[i], i);    
     }    
 }
