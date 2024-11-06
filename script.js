@@ -1,11 +1,14 @@
 /*====================================================================================================
     GLOBAL VARIABLES
-====================================================================================================*/ 
+====================================================================================================*/
 // Add global variables here
+const booksContainerRef = document.getElementById('booksContainer');
+const h1Ref = document.getElementById('headline');
+
 
 /*====================================================================================================
     FUNCTIONS
-====================================================================================================*/ 
+====================================================================================================*/
 /*
 * Is called when the page is opened and initialises the rendering of all books 
 * @param {string} <variableName> Desription for the usage of a parameter
@@ -14,10 +17,9 @@
 * @param {(number|Array)} <variableName> Desription for the usage of a parameter
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
-function init(){
+function init() {
     getFromLocalStorage();
-    renderAllBooks();
-    
+    renderBookGroup("all");
 }
 
 /*
@@ -28,14 +30,37 @@ function init(){
 * @param {(number|Array)} <variableName> Desription for the usage of a parameter
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
-function renderAllBooks(){
-    let booksContainerRef = document.getElementById('booksContainer');
+function renderBookGroup(whichOne) {
     booksContainerRef.innerHTML = "";
 
     for (let i = 0; i < books.length; i++) {
-        booksContainerRef.innerHTML += getBookTemplate(books[i], i);
-        renderAllBookComments(books[i], i);    
-    }    
+        if (whichOne == "all") {
+            renderBook(books[i], i);
+            h1Ref.innerHTML = "All Books";
+        }
+        if (whichOne == "liked" && books[i].liked) {
+            renderBook(books[i], i);
+            h1Ref.innerHTML = "Liked Books";
+        }
+        if (whichOne == "fav" && books[i].isFavouritBook) {
+            renderBook(books[i], i);
+            h1Ref.innerHTML = "Favourite Books";
+        }
+    }
+}
+
+function renderBook(currentBook, i) {
+    let likedClass = "";
+    let favClass = "";
+
+    if (currentBook.liked) {
+        likedClass = "isLikedBook";
+    }
+    if (currentBook.isFavouritBook) {
+        favClass = "isFavouritBook";
+    }
+    booksContainerRef.innerHTML += getBookTemplate(currentBook, i, likedClass, favClass);
+    renderAllBookComments(currentBook, i)
 }
 
 /*
@@ -46,13 +71,13 @@ function renderAllBooks(){
 * @param {(number|Array)} <variableName> Desription for the usage of a parameter
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
-function renderAllBookComments(book, i){
+function renderAllBookComments(book, i) {
     let book_commentAreaRef = document.getElementById(`displayComments${i}`);
     book_commentAreaRef.innerHTML = "";
-    if(books[i].comments.length == 0){
+    if (books[i].comments.length == 0) {
         let displayCommentsRef = document.getElementById(`displayComments${i}`);
         displayCommentsRef.innerHTML = "<i>Noch keine Kommentare vorhanden.</i>"
-    }else{
+    } else {
         for (let j = 0; j < books[i].comments.length; j++) {
             book_commentAreaRef.innerHTML += getCommentsTemplate(book, j);
         }
@@ -67,15 +92,15 @@ function renderAllBookComments(book, i){
 * @param {(number|Array)} <variableName> Desription for the usage of a parameter
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
-function createMyComment(i){
+function createMyComment(i) {
     let commentInpRef = document.getElementById(`commentInp${i}`);
-    books[i].comments.push({ name: "YOU", comment: commentInpRef.value});
+    books[i].comments.push({ name: "YOU", comment: commentInpRef.value });
     renderAllBooks();
     saveToLocalStorage();
 }
 
 
-//saveToLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavoriteBook ()
+//saveToLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavouriteBook ()
 /*
 * Saves the array books as a string in LocalStorage
 * @param {string} <variableName> Desription for the usage of a parameter
@@ -85,10 +110,10 @@ function createMyComment(i){
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
 function saveToLocalStorage() {
-    localStorage.setItem("myBooks", JSON.stringify(books)); 
+    localStorage.setItem("myBooks", JSON.stringify(books));
 }
 
-//loadFromLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavoriteBook ()
+//loadFromLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavouriteBook ()
 /*
 * Loads from LocalStorage the string mybooks and if it is not null it is assigned as object to the array books
 * @param {string} <variableName> Desription for the usage of a parameter
@@ -104,7 +129,6 @@ function getFromLocalStorage() {
     if (myArray != null) { // Darf nur gemacht werden, wenn die Variable im LocalStorage gefunden wird
         books = myArray;
     }
-
 }
 
 /*
@@ -115,34 +139,36 @@ function getFromLocalStorage() {
 * @param {(number|Array)} <variableName> Desription for the usage of a parameter
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
-function toggleIsLikedBook(i){
- let heartRef = document.getElementById(`heart${i}`);
- let likesRef = document.getElementById(`likes${i}`);   
- if(heartRef.classList.contains("isLikedBook")){
-    heartRef.classList.remove("isLikedBook");
-    likesRef.innerHTML -= 1; 
- }else{
-    heartRef.classList.add("isLikedBook");
-    likesRef.innerHTML = parseInt(likesRef.innerHTML) + 1;
- }
-}
-/*
-* Description
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
-*/
-function toggleIsFavoriteBook(i){
-    let favoritRef = document.getElementById(`favorit${i}`);
-    if(favoritRef.classList.contains("isFavoritBook")){
-        favoritRef.classList.remove("isFavoritBook");
-    }else{
-        favoritRef.classList.add("isFavoritBook");
+function toggleIsLikedBook(i) {
+    let heartRef = document.getElementById(`heart${i}`);
+    let likesRef = document.getElementById(`likes${i}`);
+    if (heartRef.classList.contains("isLikedBook")) {
+        heartRef.classList.remove("isLikedBook");
+        likesRef.innerHTML -= 1;
+        books[i].liked = false;
+    } else {
+        heartRef.classList.add("isLikedBook");
+        likesRef.innerHTML = parseInt(likesRef.innerHTML) + 1;
+        books[i].liked = true;
     }
-   }
-/*====================================================================================================
-    EVENT LISTENERS
-====================================================================================================*/ 
-// Add eventlistenders here
+    saveToLocalStorage();
+}
+/*
+* Description
+* @param {string} <variableName> Desription for the usage of a parameter
+* @param {number} <variableName> Desription for the usage of a parameter
+* @param {(string|Array)} <variableName> Desription for the usage of a parameter
+* @param {(number|Array)} <variableName> Desription for the usage of a parameter
+* @returns {(string|Array)} <variableName> Desription for the return variable/value
+*/
+function toggleIsFavouriteBook(i) {
+    let FavouritRef = document.getElementById(`Favourit${i}`);
+    if (FavouritRef.classList.contains("isFavouritBook")) {
+        FavouritRef.classList.remove("isFavouritBook");
+        books[i].isFavouritBook = false;
+    } else {
+        FavouritRef.classList.add("isFavouritBook");
+        books[i].isFavouritBook = true;
+    }
+    saveToLocalStorage();
+}
