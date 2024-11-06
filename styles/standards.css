@@ -19,6 +19,7 @@
 /* Typographic tweaks (Add accessible line-height)*/
 body {
     line-height: 1.5;
+    overflow-x: hidden;
 }
 
 /* Improve media defaults*/

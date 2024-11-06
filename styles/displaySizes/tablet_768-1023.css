@@ -1,9 +1,20 @@
 /*==================================================================================================== 
     Tablet
 ==================================================================================================== */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1123px) {
 
     /* Add here Tablet specific adjustments */
 
+    .sendComment {
+        flex-direction: column;
+    }
 
+    .sendComment {
+        flex-direction: column;
+    }
+
+    .sendComment button {
+        border-top-right-radius: 0px;
+        border: 1px solid white;
+    }
 }

@@ -4,5 +4,26 @@
 @media (min-width: 375px) and (max-width: 424px) {
 
     /* Add here Mobile M specific adjustments */
+    .book {
+        min-width: 280px;
+    }
 
+
+    #logoText {
+        display: none;
+    }
+
+    .content__Footer {
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    .sendComment {
+        flex-direction: column;
+    }
+
+    .sendComment button {
+        border-top-right-radius: 0px;
+        border: 1px solid white;
+    }
 }
