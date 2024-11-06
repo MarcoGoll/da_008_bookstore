@@ -108,14 +108,14 @@ function getFromLocalStorage() {
 }
 
 /*
-* Loads from LocalStorage the string mybooks and if it is not null it is assigned as object to the array books
+* Description
 * @param {string} <variableName> Desription for the usage of a parameter
 * @param {number} <variableName> Desription for the usage of a parameter
 * @param {(string|Array)} <variableName> Desription for the usage of a parameter
 * @param {(number|Array)} <variableName> Desription for the usage of a parameter
 * @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
-function togleIsLikedBook(i){
+function toggleIsLikedBook(i){
  let heartRef = document.getElementById(`heart${i}`);
  let likesRef = document.getElementById(`likes${i}`);   
  if(heartRef.classList.contains("isLikedBook")){
@@ -126,8 +126,22 @@ function togleIsLikedBook(i){
     likesRef.innerHTML = parseInt(likesRef.innerHTML) + 1;
  }
 }
-//toggleIsFavoriteBook
-
+/*
+* Description
+* @param {string} <variableName> Desription for the usage of a parameter
+* @param {number} <variableName> Desription for the usage of a parameter
+* @param {(string|Array)} <variableName> Desription for the usage of a parameter
+* @param {(number|Array)} <variableName> Desription for the usage of a parameter
+* @returns {(string|Array)} <variableName> Desription for the return variable/value
+*/
+function toggleIsFavoriteBook(i){
+    let favoritRef = document.getElementById(`favorit${i}`);
+    if(favoritRef.classList.contains("isFavoritBook")){
+        favoritRef.classList.remove("isFavoritBook");
+    }else{
+        favoritRef.classList.add("isFavoritBook");
+    }
+   }
 /*====================================================================================================
     EVENT LISTENERS
 ====================================================================================================*/ 

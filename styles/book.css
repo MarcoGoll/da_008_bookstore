@@ -77,7 +77,21 @@
 .isLikedBook {
     fill: hsl(0, 100%, 50%);
     filter: drop-shadow(0px 0px 5px red);
+}
 
+.favorit {
+    width: 20px;
+    height: 20px;
+}
+
+.favorit:hover {
+    fill: var(--clrAcc50);
+    filter: drop-shadow(0px 0px 5px var(--clrAcc50));
+}
+
+.isFavoritBook {
+    fill: yellow;
+    filter: drop-shadow(0px 0px 5px yellow);
 }
 
 .infoArea__line {
@@ -111,8 +125,6 @@
     overflow-y: auto;
     scrollbar-color: var(--clrPrim75)var(--clrPrim20);
     scrollbar-width: thin;
-
-
 }
 
 .displayComment {
