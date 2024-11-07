@@ -26,7 +26,6 @@ const refbtnDarkmodeMobile = document.getElementById('btnDarkmodeMobile');
 */
 window.onscroll = function () { scrollFunction() };
 
-
 /*
 * When the user scrolls down 20px from the top of the document, show the button
 */
@@ -38,8 +37,9 @@ function scrollFunction() {
     }
 }
 
-
-// When the user clicks on the button, scroll to the top of the document
+/*
+* When the user clicks on the button, scroll to the top of the document
+*/
 function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -50,7 +50,7 @@ function topFunction() {
     for BASIC FEATURE ==> toogle dark mode
 /*================================================*/
 /*
-* Switch zwischen Darkmode and Lightmode
+* Switch between Darkmode and Lightmode
 */
 function switchDarkmode() {
     if (refBody.classList.contains("darkmode")) {
@@ -71,7 +71,7 @@ function switchDarkmode() {
     for BASIC FEATURE ==> hamburger nav
 /*================================================*/
 /*
-* Switch zwischen Darkmode and Lightmode
+* Switch between Hamburgermenue is displayed or not
 */
 function toggleMobileNav() {
     document.getElementById("mobileNav").classList.toggle(`closed`);

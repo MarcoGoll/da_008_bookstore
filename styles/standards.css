@@ -128,12 +128,13 @@ button {
     background-color: var(--clrBGBtnInLightMode);
     border: 1px solid var(--clrPrim75);
 
-    transition: all 200ms ease-in-out;
+    transition: all 125ms ease-in-out;
 }
 
 button:hover {
     cursor: pointer;
     background-color: var(--clrBGBtnHoverInLightMode);
+    transform: scale(1.05);
 }
 
 .cta {

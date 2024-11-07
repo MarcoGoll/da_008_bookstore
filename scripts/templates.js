@@ -1,9 +1,9 @@
-/*
+/**
 * Provides the intended HTML code for a book and takes over the index for unique designations where necessary
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+* @param {object} book - Data from the book for which the HTML is requested
+* @param {number} i - Counter to uniquely mark elements
+* @param {string} likedClass - If book liked, then corresponding css class name otherwise empty
+* @param {string} favClass - If book favourite, then corresponding css class name otherwise empty
 */
 function getBookTemplate(book, i, likedClass, favClass) {
     return `<div class="book" id="book${i}">
@@ -60,13 +60,10 @@ function getBookTemplate(book, i, likedClass, favClass) {
                 </div>`;
 }
 
-/*
+/**
 * Provides the intended HTML code for a comment and takes over the index for unique designations where necessary
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+* @param {object} book - Data from the book for which the Comment is requested
+* @param {number} i - Counter to uniquely mark elements
 */
 function getCommentsTemplate(book, i) {
     return `

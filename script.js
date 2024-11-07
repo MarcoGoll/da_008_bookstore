@@ -1,7 +1,6 @@
 /*====================================================================================================
     GLOBAL VARIABLES
 ====================================================================================================*/
-// Add global variables here
 const booksContainerRef = document.getElementById('booksContainer');
 const h1Ref = document.getElementById('headline');
 
@@ -9,26 +8,17 @@ const h1Ref = document.getElementById('headline');
 /*====================================================================================================
     FUNCTIONS
 ====================================================================================================*/
-/*
+/**
 * Is called when the page is opened and initialises the rendering of all books 
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
 */
 function init() {
     getFromLocalStorage();
     renderBookGroup("all");
 }
 
-/*
-* Goes through an array of books and renders all contained
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+/**
+* Goes through an array of books and initialize the rendering of them groupwise
+* @param {string} whichOne - Describes which book group is to be rendered => "all" - all / "liked" - only books which are liked / "fav" - only books which are favourite
 */
 function renderBookGroup(whichOne) {
     booksContainerRef.innerHTML = "";
@@ -47,13 +37,9 @@ function renderBookGroup(whichOne) {
     }
 }
 
-/*
-* Description
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+/**
+* Sets the PageHeadline to match the selected book group
+* @param {string} whichOne - Describes which headline is to be rendered
 */
 function setPageHeadline(whichOne) {
     if (whichOne == "all") {
@@ -67,13 +53,10 @@ function setPageHeadline(whichOne) {
     }
 }
 
-/*
-* Description
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+/**
+* Renders a book. If necessary, set the CSS classes for liked or favorite books. And initializes the loading of the comments for this book
+* @param {object} currentBook - single book which is currently to be rendered
+* @param {number} i - Counter to uniquely mark elements
 */
 function renderBook(currentBook, i) {
     let likedClass = "";
@@ -89,13 +72,10 @@ function renderBook(currentBook, i) {
     renderAllBookComments(currentBook, i)
 }
 
-/*
+/**
 * Goes through all comments of a book and renders all contained
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+* @param {object} currentBook - single book from which the current comments are to be rendered
+* @param {number} i - Counter to uniquely mark elements
 */
 function renderAllBookComments(book, i) {
     let book_commentAreaRef = document.getElementById(`displayComments${i}`);
@@ -110,13 +90,9 @@ function renderAllBookComments(book, i) {
     }
 }
 
-/*
-* Create a new comment for the book with the appropriate index
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+/**
+* Create a new comment for the book with the appropriate index AND triggers a localStorage save
+* @param {number} i - Counter to uniquely mark elements
 */
 function createMyComment(i) {
     let commentInpRef = document.getElementById(`commentInp${i}`);
@@ -125,45 +101,28 @@ function createMyComment(i) {
     saveToLocalStorage();
 }
 
-
-//saveToLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavouriteBook ()
 /*
-* Saves the array books as a string in LocalStorage
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+* Saves the array books (with currenly changed data (comments, liked, isFavouritBook)) as a string in LocalStorage
 */
 function saveToLocalStorage() {
     localStorage.setItem("myBooks", JSON.stringify(books));
 }
 
-//loadFromLocalStorage ==> myComments (/) / boolean isLikedBook () / boolean isFavouriteBook ()
 /*
-* Loads from LocalStorage the string mybooks and if it is not null it is assigned as object to the array books
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+* Loads the string mybooks (with last changed data (comments, liked, isFavouritBook)) from LocalStorage and assing to object books
 */
 function getFromLocalStorage() {
-    const myLoadedBooks = localStorage.getItem('myBooks'); // wird als String geladen nicht als Array!
-    let myArray = JSON.parse(myLoadedBooks); // Wandelt String in Array (object) um.
+    const myLoadedBooks = localStorage.getItem('myBooks'); // is loaded as a string, not as an array!
+    let myArray = JSON.parse(myLoadedBooks); // Converts string to array (object).
 
-    if (myArray != null) { // Darf nur gemacht werden, wenn die Variable im LocalStorage gefunden wird
+    if (myArray != null) { // May only be done if the variable is found in LocalStorage
         books = myArray;
     }
 }
 
-/*
-* Description
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+/**
+* toogled the status of a book in relation to the like function 
+* @param {number} i - identifys which book
 */
 function toggleIsLikedBook(i) {
     let heartRef = document.getElementById(`heart${i}`);
@@ -179,13 +138,10 @@ function toggleIsLikedBook(i) {
     }
     saveToLocalStorage();
 }
-/*
-* Description
-* @param {string} <variableName> Desription for the usage of a parameter
-* @param {number} <variableName> Desription for the usage of a parameter
-* @param {(string|Array)} <variableName> Desription for the usage of a parameter
-* @param {(number|Array)} <variableName> Desription for the usage of a parameter
-* @returns {(string|Array)} <variableName> Desription for the return variable/value
+
+/**
+* toogled the status of a book in relation to the favourite function 
+* @param {number} i - identifys which book
 */
 function toggleIsFavouriteBook(i) {
     let FavouritRef = document.getElementById(`Favourit${i}`);
