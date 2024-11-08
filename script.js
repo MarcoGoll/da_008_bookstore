@@ -131,10 +131,12 @@ function toggleIsLikedBook(i) {
         heartRef.classList.remove("isLikedBook");
         likesRef.innerHTML -= 1;
         books[i].liked = false;
+        books[i].likes = parseInt(likesRef.innerHTML);
     } else {
         heartRef.classList.add("isLikedBook");
         likesRef.innerHTML = parseInt(likesRef.innerHTML) + 1;
         books[i].liked = true;
+        books[i].likes = parseInt(likesRef.innerHTML);
     }
     saveToLocalStorage();
 }
