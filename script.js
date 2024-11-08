@@ -13,7 +13,7 @@ let currentView = "all";
 * Is called when the page is opened and initialises the rendering of all books 
 */
 function init() {
-    getFromLocalStorage(); //TODO: Add currentview to localStorage
+    getFromLocalStorage();
     renderBookGroup(currentView);
 }
 
