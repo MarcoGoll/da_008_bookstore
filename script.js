@@ -3,6 +3,7 @@
 ====================================================================================================*/
 const booksContainerRef = document.getElementById('booksContainer');
 const h1Ref = document.getElementById('headline');
+let currentView = "all";
 
 
 /*====================================================================================================
@@ -12,8 +13,8 @@ const h1Ref = document.getElementById('headline');
 * Is called when the page is opened and initialises the rendering of all books 
 */
 function init() {
-    getFromLocalStorage();
-    renderBookGroup("all");
+    getFromLocalStorage(); //TODO: Add currentview to localStorage
+    renderBookGroup(currentView);
 }
 
 /**
@@ -44,12 +45,15 @@ function renderBookGroup(whichOne) {
 function setPageHeadline(whichOne) {
     if (whichOne == "all") {
         h1Ref.innerHTML = "All Books";
+        currentView = "all";
     }
     if (whichOne == "liked") {
         h1Ref.innerHTML = "Liked Books";
+        currentView = "liked"
     }
     if (whichOne == "fav") {
         h1Ref.innerHTML = "Favourite Books";
+        currentView = "fav";
     }
 }
 
@@ -97,7 +101,7 @@ function renderAllBookComments(book, i) {
 function createMyComment(i) {
     let commentInpRef = document.getElementById(`commentInp${i}`);
     books[i].comments.push({ name: "YOU", comment: commentInpRef.value });
-    renderBookGroup("all");
+    renderBookGroup(currentView);
     saveToLocalStorage();
 }
 
@@ -146,7 +150,7 @@ function toggleIsLikedBook(i) {
 * @param {number} i - identifys which book
 */
 function toggleIsFavouriteBook(i) {
-    let FavouritRef = document.getElementById(`Favourit${i}`);
+    let FavouritRef = document.getElementById(`favourit${i}`);
     if (FavouritRef.classList.contains("isFavouritBook")) {
         FavouritRef.classList.remove("isFavouritBook");
         books[i].isFavouritBook = false;
